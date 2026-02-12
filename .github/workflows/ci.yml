@@ -1,14 +1,25 @@
-name: "CI VUEJS TEST"
+name: "CI VueJS Tests"
 
 on:
   push:
-    paths:
-      - "*"
+    branches:
+      - main
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
-    continue-on-error: false
+
     steps:
-      - name: "Say hello"
-        run: echo "Hello world"
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
