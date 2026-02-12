@@ -1,0 +1,17 @@
+name: "CI VUEJS TEST"
+
+on:
+  push:
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    steps:
+      - name: "Say hello"
+        run: echo "Hello world"
