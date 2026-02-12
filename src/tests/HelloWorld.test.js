@@ -7,4 +7,9 @@ describe('App', () => {
     const wrapper = mount(App)
     expect(wrapper.text()).toContain('Hello World')
   })
+
+  test('Not Hello World', () => {
+    const wrapper = mount(App)
+    expect(wrapper.text()).not.toContain('Hello World')
+  })
 })
